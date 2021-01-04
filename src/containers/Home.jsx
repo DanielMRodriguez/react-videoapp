@@ -1,22 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import Header from "../components/Header.jsx";
 import Search from "../components/Search.jsx";
 import Categoria from "../components/Categoria.jsx";
 import Carousel from "../components/Carousel.jsx";
 import CarouselItem from "../components/CarouselItem.jsx";
-import Footer from "../components/Footer.jsx";
 import useInitialState from "../hooks/useInitialState";
 import "../assets/styles/App.scss";
 
 const API = "http://localhost:3000/initalState";
 
-const App = () => {
+const Home = () => {
 
     const initialState = useInitialState(API);
 
     return (
-        <div className="app">
-            <Header />
+        <React.Fragment>
             <Search />
             {
                 initialState.mylist.length > 0 &&
@@ -45,9 +42,9 @@ const App = () => {
                     }
                 </Carousel>
             </Categoria>
-            <Footer />
-        </div>
+
+        </React.Fragment>
     );
 }
 
-export default App
+export default Home
