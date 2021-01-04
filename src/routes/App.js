@@ -5,6 +5,7 @@ import Login from '../containers/Login.jsx';
 import Register from '../containers/Register.jsx';
 import NotFound from '../containers/NotFoud.jsx';
 import Layout from '../components/Layout.jsx';
+import Player from '../containers/Player.jsx';
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
           <Route exact path="/" component={Home}></Route>
           <Route exact path="/login" component={Login}></Route>
           <Route exact path="/join" component={Register}></Route>
+          <Route exact path="/player/:id" component={Player} />
           <Route component={NotFound} />
         </Switch>
       </Layout>

@@ -4,7 +4,8 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import reducer from './reducers/index';
 import App from './routes/App.js';
-
+const composeEnhancers =
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
 const initialState = {
   user: {},
   playing: {},
@@ -171,7 +172,7 @@ const initialState = {
   ],
 };
 
-const store = createStore(reducer, initialState);
+const store = createStore(reducer, initialState, composeEnhancers);
 
 ReactDOM.render(
   <Provider store={store}>
