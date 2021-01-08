@@ -1,14 +1,18 @@
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const dotenv = require('dotenv');
 
+dotenv.config();
 module.exports = {
-  entry: './src/index.js',
+  entry: './src/frontend/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
     publicPath: '/',
   },
+  mode: process.env.ENV || 'development',
   resolve: {
     extensions: ['.js', '.jsx'],
   },
@@ -56,6 +60,7 @@ module.exports = {
     historyApiFallback: true,
   },
   plugins: [
+    new webpack.HotModuleReplacementPlugin(),
     new HtmlWebPackPlugin({
       template: './public/index.html',
       filename: './index.html',
