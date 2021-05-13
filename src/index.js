@@ -172,7 +172,7 @@ const initialState = {
   ],
 };
 
-const store = createStore(reducer, initialState, composeEnhancers);
+const store = createStore(reducer, initialState,{});
 
 ReactDOM.render(
   <Provider store={store}>
